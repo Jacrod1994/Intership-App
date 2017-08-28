@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Concept: Action</title>
+	<link rel="stylesheet" href="themes/Reflective.min.css" />
+	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+	<link rel="stylesheet" href="themes/jquery.mobile.structure-1.4.5.min.css" />
+	<link rel="stylesheet" href="themes/drag.css" />
+	<link rel="stylesheet" href="themes/icon.css" />
+	<script src="themes/js/quiz_action.js"></script>
+	<script src="themes/js/jquery-1.11.1.min.js"></script>
+	<script src="themes/js/jquery.mobile-1.4.5.min.js"></script>
+	<script src="themes/js/jquery-ui.js"></script>
+	<script src="themes/js/jquery.ui.touch-punch.min.js"></script>
+	<link rel="icon" href="themes/images/icons-png/favicon.ico">
+<script>
+        $( document ).on( "pagecreate", function() {
+            $( ".photopopup" ).on({
+                popupbeforeposition: function() {
+                    var maxHeight = $( window ).height() - 60 + "px";
+                    $( ".photopopup img" ).css( "max-height", maxHeight );
+                }
+            });
+        });
+
+        $(document).on("ready", function(){
+
+            var slices = $("#slices");
+            var options = $("#options");
+            var area = $("#area");
+
+            var selected;
+            var result;
+
+            //---Array of images
+            var Concept = [
+            {image: "themes/images/match/action_one.png", value: 3},
+            {image: "themes/images/match/action_two.png", value: 3},
+            {image: "themes/images/match/action_three.png", value: 3},
+			{image: "themes/images/match/action_four.png", value: 1},
+			{image: "themes/images/match/action_five.png", value: 2},
+            ];
+            var total = Concept.length;
+
+            //---Make boxes dragables
+            options.find("div").draggable();
+
+            //---When the boxes are dropped
+            area.droppable({
+
+                drop: function(event, ui){
+
+                    console.log("yes");
+
+                    if( Number( ui.draggable.attr("data-index") ) == result ){
+
+                        alert("Well Done!!!!!!!!!!");
+
+                    }else{
+
+                        alert("Try Again!!!!!!");
+
+                    }
+
+                }
+
+            });
+
+            //---Insert random Concept
+            function insertConcept(){
+
+                selected = [];
+                result = 0;
+
+            //---Generate aleatory pieces
+            var rand
+
+            while(selected.length < 1){
+
+            //---Random value
+            rand = Math.floor( Math.random() * total );
+
+            //---Sum result
+            result += Concept[rand].value;
+
+            selected.push( rand );
+
+            }
+
+            //---Clear the slices
+            slices.html("");
+
+            //---Add the new slices
+            selected.forEach(function(number){
+
+                var img = $("<img/>");
+
+                img.attr("src", Concept[number].image);
+
+                slices.append(img);
+
+            });
+
+            }
+
+            insertConcept();
+
+        });
+    </script>
+</head>
+<body>
+<div data-role="page" id="foo">
+
+	<div data-role="header" data-position="fixed">
+		<h1>Action</h1>
+
+<a href="index.html" class="ui-btn ui-shadow ui-corner-all ui-icon-home ui-btn-icon-notext" rel="external">Delete</a>
+	</div><!-- /header -->
+
+   <div role="main" class="ui-content">
+       <div data-role="content" data-theme="a">
+		
+		<h2><img src="themes/images/icons-png/trafficlight-green.png"> Action</h2>
+		
+		<p><b>Action taken with the aim to improve or progress a project</b></p>
+        <p>The concept evokes action or communication during the project. This could be in relation to the progression or improvement of the subject matter or related to the usage of a process in context of the project, for instance, to analyse it or mapping out experiences to theories.</p>
+        <p>It refers to the implementation with regards to something key to the project and it includes explanations that support the reason for the implementation.</p>
+		<h4>Development Patterns</h4>
+		
+<a href="#pagetwo" class="ui-btn ui-btn-inline">Implementing</a>
+
+<a href="#pagethree" class="ui-btn ui-btn-inline">Problem solving</a>
+
+<a href="#pagefour" class="ui-btn ui-btn-inline">Interacting</a>
+
+
+<p> Test your knowledge </p>
+
+<a href="#mcGames" class="ui-btn ui-btn-inline">Quiz</a>
+<a href="#match" class="ui-btn ui-btn-inline">Match</a>
+		
+		</div><!-- /article -->
+	</div><!-- /content -->
+
+<div data-role="footer" data-position="fixed">
+	<h1>&copy; 2017 Myriam Mallet</h1>
+	</div> <!--/footer -->
+</div><!-- /page -->
+
+<div data-role="page" data-dialog="true" id="pagetwo">
+  <div data-role="header">
+    <h1>Implementing</h1>
+  </div>
+<div role="main" class="ui-content">
+       <div data-role="content" data-theme="a">
+		<h4>Definition</h4>
+    <p>Provides a description of a specific aspect of the project that was implemented as well as an explanation with regards to why it was implemented.</p>
+    <p>This demonstrates project's progress and learner's understanding of action.</p>
+        
+        <h4>Examples</h4>
+    <p>"The team developed prototypes in the form of live websites or screenshots from design stages and they were presented to the clients in the various meetings during the project.</p>
+    <p>This allowed the clients o deliver feedback on what had been achieved to date."</p>
+        
+		</div><!-- /article -->
+	</div><!-- /content -->
+
+  <div data-role="footer">
+    <h1>&copy; 2017 Myriam Mallet</h1>
+  </div>
+</div> 
+
+<div data-role="page" data-dialog="true" id="pagethree">
+  <div data-role="header">
+    <h1>Problem solving</h1>
+  </div>
+<div role="main" class="ui-content">
+       <div data-role="content" data-theme="a">
+	   <h4>Definition</h4>
+    <p>This is initiated by the recognition of an issue and it either explains how the issue has been dealt with during the project or it demonstrates that the learner has thought of a mean of effectively dealing with the problem in the future</p>
+   
+		<h4>Examples</h4>
+	<p>"Meeting minutes should have been made available to all team members on a more regular basis following meetings.</p>
+	<p>Especially for people like me, it's difficult to maintain concentration in meeting, and tend to daydream a lot completely cubconsciously".</p>
+		</div><!-- /article -->
+	</div><!-- /content -->
+
+  <div data-role="footer">
+    <h1>&copy; 2017 Myriam Mallet</h1>
+  </div>
+</div> 
+
+<div data-role="page" data-dialog="true" id="pagefour">
+  <div data-role="header">
+    <h1>Interacting</h1>
+  </div>
+<div role="main" class="ui-content">
+       <div data-role="content" data-theme="a">
+<h4>Definition</h4>
+    <p>This refers to inter-persons communication in relation to proect's progress.</p>
+        
+        <h4>Examples</h4>
+    <p>"We had face to face meeting in which all team members had to be present in order to consult with the client and extract the information needed to determine in which direction the project should be heading at".</p>		</div><!-- /article -->
+	</div><!-- /content -->
+
+  <div data-role="footer">
+    <h1>&copy; 2017 Myriam Mallet</h1>
+  </div>
+</div> 
+
+<!-- The Multiple Choice Games -->
+
+<div data-role="page" id="mcGames" data-theme="a">
+	<div data-role="header">
+		<h1>Quiz</h1>
+		<a href="#foo" data-direction="reverse" data-transition="slide" class="ui-btn ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all ui-btn-icon-notext ui-btn-inline">Back</a> 
+		</div>
+	<div data-role="ui-content" style="margin-top:15px;">
+	<div role="main" class="ui-content">
+ <div data-role="content" data-theme="a">
+			
+			<p><h1> How to play </h1><p>
+			
+			<p>The aim of the quiz is to answer ten random questions about the reflective concepts: Action and its development patterns: Implementing, Interacting and Problem-solving</p>
+		
+		<ul data-role="listview" data-inset="true">		
+			<li><a id="ActionQuiz" onclick="launch(this.id)">Play</a></li>
+		</ul>
+
+		</div>
+		</div>
+	</div>
+	<div data-role="footer" data-position="fixed">
+		<h4><span style="float: left;">&copy; 2017 Myriam Mallet</span> <span style="font-size:12px; float: right;">High Score: <span>0</span></span></h4>
+	</div>
+
+	
+	<!-- The MC PopUp Card -->
+	<div data-role="popup" id="mcCARD" data-overlay-theme="b" data-dismissible="false" style="min-width:280px;" data-transition="turn">
+		<div data-role="header"> <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+			<h1>Choose at Own Risk</h1>
+		</div>
+		<div role="main" class="ui-content">
+			<p class="center"></p>
+			<br/>
+			<div class="center"></div>
+			<div class="ui-grid-a ui-mini" id="mcAnswers">
+				<div><a id="1" onclick="submitMC(this)" class="ui-btn ui-corner-all ui-shadow">A</a></div>
+				<div><a id="2" onclick="submitMC(this)" class="ui-btn ui-corner-all ui-shadow">B</a></div>
+				<div><a id="3" onclick="submitMC(this)" class="ui-btn ui-corner-all ui-shadow">C</a></div>
+				<div><a id="4" onclick="submitMC(this)" class="ui-btn ui-corner-all ui-shadow">D</a></div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- The GameOver Card -->
+	<div data-role="popup" id="gameoverMC" data-dismissible="false" style="min-width:300px;" data-transition="flow" data-theme="a">
+		<div data-role="header">
+			<h1></h1>
+		</div>
+		<div role="main" class="ui-content">
+			<div class="center">
+				<p></p>
+				<a id="true" onclick="retryQuizMC()" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">RETRY</a> <a id="false" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" data-rel="back">CLOSE</a> </div>
+		</div>
+	</div>
+</div>
+</div>
+
+
+<!-- Start of Game Match up page -->
+
+<div data-role="page" id="match">
+
+
+<div data-role="header" data-position="fixed">
+		<h1>Action: Match up</h1>
+		<a href="#foo" data-direction="reverse" data-transition="slide" class="ui-btn ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all ui-btn-icon-notext ui-btn-inline">Back</a>
+	</div><!-- /header -->
+ <div data-role="main" class="ui-content" data-theme="a">
+  <div data-role="content" data-theme="a">
+  
+
+	<h1> How to play </h1>
+	
+	
+	<p> The aim of this game is to match the Development patterns with the examples shown.</p>
+  <center><p><a href="#match_play" class="ui-btn ui-btn-inline">Play</a></p></center>
+</div>
+</div>
+<div data-role="footer" data-position="fixed">
+	<h1>&copy; 2017 Myriam Mallet</h1>
+	</div> <!--/footer -->
+ 
+</div><!-- /page -->
+
+
+
+<!-- Match up game -->
+<div data-role="page" id="match_play">
+
+
+<div data-role="header" data-position="fixed">
+		<h1>Action: Match up</h1>
+		<a href="#match" class="ui-btn ui-shadow ui-corner-all ui-icon-back ui-btn-icon-notext" rel="external">Delete</a>
+	</div><!-- /header -->
+    <div data-role="navbar" >
+        <ul>
+            <li><button onclick="location.reload(true)" class ="ui-btn-b">New Statment!</button></li>
+        </ul>
+    </div><!-- /navbar -->
+
+<div data-role="footer" data-position="fixed">
+	<h1>&copy; 2017 Myriam Mallet</h1>
+	</div> <!--/footer -->
+  <div data-role="main" class="ui-content" data-theme="a">
+  <div data-role="content" data-theme="a">
+	<div id="slices">
+  
+</div>
+
+<div id="options">
+  <div data-index="1">Implementing</div>
+  <div data-index="2">Interacting</div>
+  <div data-index="3">Problem solving</div>
+
+</div>
+
+<div id="area">
+Drag your answer here!!!
+</div>
+</div>
+</div><!-- /page -->
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+		<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Concept: Proving</title>
+	<link rel="stylesheet" href="themes/Reflective.min.css" />
+	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+	<link rel="stylesheet" href="themes/jquery.mobile.structure-1.4.5.min.css" />
+	<link rel="stylesheet" href="themes/drag.css" />
+	<link rel="stylesheet" href="themes/icon.css" />
+	<script src="themes/js/quiz_proving.js"></script>
+	<script src="themes/js/jquery-1.11.1.min.js"></script>
+	<script src="themes/js/jquery.mobile-1.4.5.min.js"></script>
+	<script src="themes/js/jquery-ui.js"></script>
+	<script src="themes/js/jquery.ui.touch-punch.min.js"></script>
+	<link rel="icon" href="themes/images/icons-png/favicon.ico">
+<script>
+        $( document ).on( "pagecreate", function() {
+            $( ".photopopup" ).on({
+                popupbeforeposition: function() {
+                    var maxHeight = $( window ).height() - 60 + "px";
+                    $( ".photopopup img" ).css( "max-height", maxHeight );
+                }
+            });
+        });
+
+        $(document).on("ready", function(){
+
+            var slices = $("#slices");
+            var options = $("#options");
+            var area = $("#area");
+
+            var selected;
+            var result;
+
+            //---Array of images
+            var Concept = [
+            {image: "themes/images/match/proving_one.png", value: 2},
+			{image: "themes/images/match/proving_two.png", value: 3},
+			{image: "themes/images/match/proving_three.png", value: 2},
+			{image: "themes/images/match/proving_four.png", value: 2},
+			{image: "themes/images/match/proving_five.png", value: 1},
+			{image: "themes/images/match/proving_six.png", value: 3},
+            ];
+            var total = Concept.length;
+
+            //---Make boxes dragables
+            options.find("div").draggable();
+
+            //---When the boxes are dropped
+            area.droppable({
+
+                drop: function(event, ui){
+
+                    console.log("yes");
+
+                    if( Number( ui.draggable.attr("data-index") ) == result ){
+
+                        alert("Well Done!!!!!!!!!!");
+
+                    }else{
+
+                        alert("Try Again!!!!!!");
+
+                    }
+
+                }
+
+            });
+
+            //---Insert random Concept
+            function insertConcept(){
+
+                selected = [];
+                result = 0;
+
+            //---Generate aleatory pieces
+            var rand
+
+            while(selected.length < 1){
+
+            //---Random value
+            rand = Math.floor( Math.random() * total );
+
+            //---Sum result
+            result += Concept[rand].value;
+
+            selected.push( rand );
+
+            }
+
+            //---Clear the slices
+            slices.html("");
+
+            //---Add the new slices
+            selected.forEach(function(number){
+
+                var img = $("<img/>");
+
+                img.attr("src", Concept[number].image);
+
+                slices.append(img);
+
+            });
+
+            }
+
+            insertConcept();
+
+        });
+    </script>
+
+</head>
+<body>
+<div data-role="page" id="foo">
+
+	<div data-role="header" data-position="fixed">
+		<h1>Proving</h1>
+
+<a href="index.html" class="ui-btn ui-shadow ui-corner-all ui-icon-home ui-btn-icon-notext" rel="external">Delete</a>
+	</div><!-- /header -->
+
+   <div role="main" class="ui-content">
+       <div data-role="content" data-theme="a">
+		
+		<h2><img src="themes/images/icons-png/trafficlight-green.png"> Proving</h2>
+		
+		<p><b>Validation of subject matter</b></p>
+		<p>The <i>proving</i> concept can be observed in different ways.</p>
+		<p>For instance, proving that meaning, analysis and actions are grounded in reliable sources such as experiences and literature.</p>
+		<p>It demonstrates evidence-based practice that can be sources from examples.</p>
+		<p>It has the purpose of giving more weight to what is being said in an attempt to convince and explain actions.</p>
+		
+		<h4>Development Patterns</h4>
+		
+<a href="#pagetwo" class="ui-btn ui-btn-inline">Evidencing</a>
+
+<a href="#pagethree" class="ui-btn ui-btn-inline">Illustrating</a>
+
+<a href="#pagefour" class="ui-btn ui-btn-inline">Justifying</a>
+
+<p> Test your knowledge </p>
+
+<a href="#mcGames" class="ui-btn ui-btn-inline">Quiz</a>
+<a href="#match" class="ui-btn ui-btn-inline">Match</a>
+		
+		</div><!-- /article -->
+	</div><!-- /content -->
+
+<div data-role="footer" data-position="fixed">
+	<h1>&copy; 2017 Myriam Mallet</h1>
+	</div> <!--/footer -->
+</div><!-- /page -->
+
+<div data-role="page" data-dialog="true" id="pagetwo">
+  <div data-role="header">
+    <h1>Evidencing</h1>
+  </div>
+<div role="main" class="ui-content">
+       <div data-role="content" data-theme="a">
+	   <h4>Definition</h4>
+    <p>This gives the learner the opportunity to use a body of facts or information, usually from the literature, to indicate whether his/her belief or proposition is true or valid.</p>
+        
+        <h4>Examples</h4>
+    <p>"The McGregor theory identified reasoning for these issues known as the Theory X and Theory Y management.</p>
+    <p>Theory X managers have limited regard for people and do not believe individuals are capable of producing without being pushed.</p>
+    <p>They are in essence authoritarian and pushy</p>
+    <p>The Team Leader tended to be a Theory X manager the team were mostly indifferent to his approaches routinely complaining about being pushed and not being trusted to do their tasks well."</p>
+		</div><!-- /article -->
+	</div><!-- /content -->
+
+  <div data-role="footer">
+    <h1>&copy; 2017 Myriam Mallet</h1>
+  </div>
+</div> 
+
+<div data-role="page" data-dialog="true" id="pagethree">
+  <div data-role="header">
+    <h1>Illustrating</h1>
+  </div>
+<div role="main" class="ui-content">
+       <div data-role="content" data-theme="a">
+<h4>Definition</h4>
+    <p>'Illustrating' enables the learner to provide explain and make something clear -and more specific- by using examples usually drawn from practice.</p>
+    
+        <h4>Examples</h4>
+    <p>"(Verbal style of data gathering) affected the decision making after client meetings, for example, we initially failed to understand the basic requirements such as addressing the clients USP's on the website".</p>
+		</div><!-- /article -->
+	</div><!-- /content -->
+
+  <div data-role="footer">
+    <h1>&copy; 2017 Myriam Mallet</h1>
+  </div>
+</div> 
+
+
+<div data-role="page" data-dialog="true" id="pagefour">
+  <div data-role="header">
+    <h1>Justifying</h1>
+  </div>
+<div role="main" class="ui-content">
+       <div data-role="content" data-theme="a">
+	   <h4>Definition</h4>
+    <p>This development pattern helps the learner to find reasons and justifications to prove that practice or actions were (or not) right and reasonable.</p>
+		
+		<h4>Examples</h4>
+	<p>"This was done once at the very beginning of the project, but due to a lack of organisation or possibly laziness, this did not continue.</p>
+	<p>In hindsight, the secretary was never reminded to complete this task so it was maybe just a case of forgetfulness, so better communication could have prevented this".</p>
+		</div><!-- /article -->
+	</div><!-- /content -->
+
+  <div data-role="footer">
+    <h1>&copy; 2017 Myriam Mallet</h1>
+  </div>
+</div> 
+
+<!-- The Multiple Choice Games -->
+
+<div data-role="page" id="mcGames" data-theme="a">
+	<div data-role="header">
+		<h1>Quiz</h1>
+		<a href="#foo" data-direction="reverse" data-transition="slide" class="ui-btn ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all ui-btn-icon-notext ui-btn-inline">Back</a> 
+		</div>
+	<div data-role="ui-content" style="margin-top:15px;">
+	<div role="main" class="ui-content">
+ <div data-role="content" data-theme="a">
+			
+			<p><h1> How to play </h1><p>
+			
+			<p>The aim of the quiz is to answer ten random questions about the reflective concepts: Proving and its development patterns: Evidencing, Illustrating and Justifying</p>
+		
+		<ul data-role="listview" data-inset="true">		
+			<li><a id="ProvingQuiz" onclick="launch(this.id)">Play</a></li>
+		</ul>
+
+		</div>
+		</div>
+	</div>
+	<div data-role="footer" data-position="fixed">
+		<h4><span style="float: left;">&copy; 2017 Myriam Mallet</span> <span style="font-size:12px; float: right;">High Score: <span>0</span></span></h4>
+	</div>
+
+	
+	<!-- The MC PopUp Card -->
+	<div data-role="popup" id="mcCARD" data-overlay-theme="b" data-dismissible="false" style="min-width:280px;" data-transition="turn">
+		<div data-role="header"> <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+			<h1>Choose at Own Risk</h1>
+		</div>
+		<div role="main" class="ui-content">
+			<p class="center"></p>
+			<br/>
+			<div class="center"></div>
+			<div class="ui-grid-a ui-mini" id="mcAnswers">
+				<div><a id="1" onclick="submitMC(this)" class="ui-btn ui-corner-all ui-shadow">A</a></div>
+				<div><a id="2" onclick="submitMC(this)" class="ui-btn ui-corner-all ui-shadow">B</a></div>
+				<div><a id="3" onclick="submitMC(this)" class="ui-btn ui-corner-all ui-shadow">C</a></div>
+				<div><a id="4" onclick="submitMC(this)" class="ui-btn ui-corner-all ui-shadow">D</a></div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- The GameOver Card -->
+	<div data-role="popup" id="gameoverMC" data-dismissible="false" style="min-width:300px;" data-transition="flow" data-theme="a">
+		<div data-role="header">
+			<h1></h1>
+		</div>
+		<div role="main" class="ui-content">
+			<div class="center">
+				<p></p>
+				<a id="true" onclick="retryQuizMC()" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">RETRY</a> <a id="false" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" data-rel="back">CLOSE</a> </div>
+		</div>
+	</div>
+</div>
+</div>
+
+
+<!-- Start of Game Match up page -->
+
+<div data-role="page" id="match">
+
+
+<div data-role="header" data-position="fixed">
+		<h1>Proving: Match up</h1>
+		<a href="#foo" data-direction="reverse" data-transition="slide" class="ui-btn ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all ui-btn-icon-notext ui-btn-inline">Back</a>
+	</div><!-- /header -->
+ <div data-role="main" class="ui-content" data-theme="a">
+  <div data-role="content" data-theme="a">
+  
+
+	<h1> How to play </h1>
+	
+	
+	<p> The aim of this game is to match the Development patterns with the examples shown.</p>
+  <center><p><a href="#match_play" class="ui-btn ui-btn-inline">Play</a></p></center>
+</div>
+</div>
+<div data-role="footer" data-position="fixed">
+	<h1>&copy; 2017 Myriam Mallet</h1>
+	</div> <!--/footer -->
+ 
+</div><!-- /page -->
+
+
+
+<!-- Match up game -->
+<div data-role="page" id="match_play">
+
+
+<div data-role="header" data-position="fixed">
+		<h1>Proving: Match up</h1>
+		<a href="#match" class="ui-btn ui-shadow ui-corner-all ui-icon-back ui-btn-icon-notext" rel="external">Delete</a>
+	</div><!-- /header -->
+    <div data-role="navbar" >
+        <ul>
+            <li><button onclick="location.reload(true)" class ="ui-btn-b">New Statment!</button></li>
+        </ul>
+    </div><!-- /navbar -->
+
+<div data-role="footer" data-position="fixed">
+	<h4> Footer </h4>
+	</div> <!--/footer -->
+  <div data-role="main" class="ui-content" data-theme="a">
+  <div data-role="content" data-theme="a">
+	<div id="slices">
+  
+</div>
+
+<div id="options">
+  <div data-index="1">Evidencing</div>
+  <div data-index="2">Illustrating</div>
+  <div data-index="3">Justifying</div>
+
+</div>
+
+<div id="area">
+Drag your answer here!!!
+</div>
+</div>
+</div><!-- /page -->
+</div>
+
+</body>
+</html>
