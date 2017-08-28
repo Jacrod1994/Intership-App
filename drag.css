@@ -1,0 +1,24 @@
+#options div{
+  background:#555;
+  color: #FFF;
+  display: inline-block !important;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  vertical-align: top;
+  width: 200px;
+  margin-top: 5px;
+}
+
+#slices img{ 
+  display: inline-block;
+  width: 100%;
+}
+
+#area{
+  background: #CCC;
+  border: 1px solid #555;
+  margin-top: 20px;
+  height: 30px;
+  width: 200px;
+}

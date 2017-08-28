@@ -1,0 +1,19 @@
+.ui-icon-red:after {
+	background-image: url("images/icons-png/trafficlight-red.png");
+	/* Make your icon fit */
+	background-size: 18px 18px;
+		}
+		
+	
+.ui-icon-yellow:after {
+	background-image: url("images/icons-png/trafficlight-yellow.png");
+	/* Make your icon fit */
+	background-size: 18px 18px;
+		}
+		
+		
+.ui-icon-green:after {
+	background-image: url("images/icons-png/trafficlight-green.png");
+	/* Make your icon fit */
+	background-size: 18px 18px;
+		}
